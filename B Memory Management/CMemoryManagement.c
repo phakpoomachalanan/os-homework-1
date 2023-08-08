@@ -9,29 +9,29 @@ void mallocNTimes(int n);
 
 int main(void)  
 {
-    mallocNTimes(MAX_N);
+    mallocNTimes(0);
 
-    printf("heap start: %x\n", heapPointer[0]);
-    printf("heap stop: %x\n\n", heapPointer[MAX_N]);
-    printf("stack start: %x\n", stackPointer[0]);
-    printf("stack stop: %x\n\n", stackPointer[MAX_N]);
-    printf("global variables 1: %x\n", MAX_N);
-    printf("global variables 2: %x\n", heapPointer);
-    printf("global variables 3: %x\n", stackPointer);
+    printf("stack start: %p\n", stackPointer[0]);
+    printf("stack stop : %p\n\n", stackPointer[MAX_N-1]);
+    printf("heap stop  : %p\n\n", heapPointer[MAX_N-1]);
+    printf("heap start : %p\n", heapPointer[0]);
+    printf("global variables 1: %p\n", &MAX_N);
+    printf("global variables 2: %p\n", heapPointer);
+    printf("global variables 3: %p\n", stackPointer);
 
     return 0;
 }
 
 void mallocNTimes(int i)
 {
-    int temp;
+    int* temp;
 
     if (i == MAX_N)
     {
         return;
     }
 
-    stackPointer[i] = &temp;
+    stackPointer[i] = &i;
     heapPointer[i] = (int *)malloc(sizeof(int));
 
     return mallocNTimes(i+1);
