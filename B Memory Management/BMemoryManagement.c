@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int MAX_N = 130716;
-int* heapPointer[100000001];
-int* stackPointer[100000001];
+long long int MAX_N = 130716;
+long long int* heapPointer[100000001];
+long long int* stackPointer[100000001];
 
-void mallocNTimes(int n);
+void mallocNTimes(long long int n);
 
 int main(void)  
 {
@@ -22,7 +22,7 @@ int main(void)
     return 0;
 }
 
-void mallocNTimes(int i)
+void mallocNTimes(long long int i)
 {
     int* temp;
 
@@ -32,7 +32,7 @@ void mallocNTimes(int i)
     }
 
     stackPointer[i] = &i;
-    heapPointer[i] = (int *)malloc(sizeof(int));
+    heapPointer[i] = (long long int *)malloc(sizeof(int));
 
     printf("stack now: %p\n", &i);
     printf("heap now : %p\n", heapPointer[i]);
