@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int MAX_N = 100000000;
+int MAX_N = 130716;
 int* heapPointer[100000001];
 int* stackPointer[100000001];
 
