@@ -9,9 +9,11 @@ void mallocNTimes(long long int n);
 
 int main(void)  
 {
+    printf("MAX_N = %lld\n", MAX_N);
+
     mallocNTimes(0);
 
-    printf("stack start: %p\n", stackPointer[0]);
+    printf("\nstack start: %p\n", stackPointer[0]);
     printf("stack stop : %p\n", stackPointer[MAX_N-1]);
     printf("heap stop  : %p\n", heapPointer[MAX_N-1]);
     printf("heap start : %p\n", heapPointer[0]);
