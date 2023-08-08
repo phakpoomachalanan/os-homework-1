@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int MAX_N = 100000;
-int* heapPointer[100001];
-int* stackPointer[100001];
+int MAX_N = 100000000;
+int* heapPointer[100000001];
+int* stackPointer[100000001];
 
 void mallocNTimes(int n);
 
@@ -33,6 +33,9 @@ void mallocNTimes(int i)
 
     stackPointer[i] = &i;
     heapPointer[i] = (int *)malloc(sizeof(int));
+
+    printf("stack now: %p\n", &i);
+    printf("heap now : %p\n", heapPointer[i]);
 
     return mallocNTimes(i+1);
 }
