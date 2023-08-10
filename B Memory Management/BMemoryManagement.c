@@ -2,13 +2,16 @@
 #include <stdlib.h>
 
 long long int MAX_N = 1000;
-long long int* heapPointer[100000001];
-long long int* stackPointer[100000001];
+long long int** heapPointer;
+long long int** stackPointer;
 
 void mallocNTimes(long long int n);
 
 int main(void)  
 {
+    heapPointer = (long long int**)malloc(sizeof(long long int) * MAX_N);
+    stackPointer = (long long int**)malloc(sizeof(long long int) * MAX_N);
+
     printf("MAX_N = %lld\n", MAX_N);
 
     mallocNTimes(0);
