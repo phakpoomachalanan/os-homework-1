@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long int MAX_N = 1000;
+long long int MAX_N = 200000;
 long long int** heapPointer;
 long long int** stackPointer;
 
-void mallocNTimes(long long int n);
+void mallocNTimes(long long int i);
+void cleanMemory(void);
 
 int main(void)  
 {
@@ -24,13 +25,13 @@ int main(void)
     printf("global variables 2: %p\n", heapPointer);
     printf("global variables 1: %p\n", &MAX_N);
 
+    cleanMemory();
+
     return 0;
 }
 
 void mallocNTimes(long long int i)
 {
-    int* temp;
-
     if (i == MAX_N)
     {
         return;
@@ -43,4 +44,12 @@ void mallocNTimes(long long int i)
     printf("heap now : %p\n", heapPointer[i]);
 
     return mallocNTimes(i+1);
+}
+
+void cleanMemory(void)
+{
+    free(heapPointer);
+    free(stackPointer);
+
+    return;
 }
