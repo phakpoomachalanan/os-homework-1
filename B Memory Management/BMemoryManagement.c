@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long int MAX_N = 200000;
+long long int MAX_N = 1000;
 long long int* heapPointer[100000001];
 long long int* stackPointer[100000001];
 
