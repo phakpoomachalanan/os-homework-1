@@ -4,3 +4,4 @@
 *.exe
 .vscode
 *.out
+.DS_STORE
