@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long int MAX_N = 200000;
+long long int MAX_N = 2000;
 long long int** heapPointer;
 long long int** stackPointer;
 
@@ -48,8 +48,15 @@ void mallocNTimes(long long int i)
 
 void cleanMemory(void)
 {
-    free(heapPointer);
+    int i = 0;
+
     free(stackPointer);
+
+    for (i=0; i<MAX_N; i++) 
+    {
+        free(heapPointer[i]);
+    }
+    free(heapPointer);
 
     return;
 }
