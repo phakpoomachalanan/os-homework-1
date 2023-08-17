@@ -1,17 +1,15 @@
 import time
 
-NO_OF_TIMES = 500000
+NO_OF_TIMES = 100
 
 noIStart = time.time()
 intList = [str(i+1) for i in range(NO_OF_TIMES)]
 noIEnd = time.time()
 
-with open("mockStdin.txt", "w") as fp:
-    fp.write(" ".join(intList))
+time.sleep(2)
 
 iStart = time.time()
-with open("mockStdin.txt", "r") as fp:
-    intList = fp.read().split()
+intList = input().split()
 iEnd = time.time()
 
 noOStart = time.time()
