@@ -2,13 +2,27 @@ import time
 
 NO_OF_TIMES = 500000
 
-noIoStart = time.time()
-[i+1 for i in range(NO_OF_TIMES)]
-noIoEnd = time.time()
+noIStart = time.time()
+intList = [str(i+1) for i in range(NO_OF_TIMES)]
+noIEnd = time.time()
 
-ioStart = time.time()
-[print(i+1) for i in range(NO_OF_TIMES)]
-ioEnd = time.time()
+with open("mockStdin.txt", "w") as fp:
+    fp.write(" ".join(intList))
 
-print(f"Time used w/o IO: {round(noIoEnd-noIoStart, 7)}s")
-print(f"Time used w/  IO: {round(ioEnd-ioStart, 7)}s")
+iStart = time.time()
+with open("mockStdin.txt", "r") as fp:
+    intList = fp.read().split()
+iEnd = time.time()
+
+noOStart = time.time()
+[x for x in intList]
+noOEnd = time.time()
+
+oStart = time.time()
+[print(x) for x in intList]
+oEnd = time.time()
+
+print(f"Time used w/o input : {round(noIEnd-noIStart, 7)}s")
+print(f"Time used w/  input : {round(iEnd-iStart, 7)}s")
+print(f"Time used w/o output: {round(noOEnd-noOStart, 7)}s")
+print(f"Time used w/  output: {round(oEnd-oStart, 7)}s")
