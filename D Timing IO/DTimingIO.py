@@ -9,7 +9,7 @@ noIEnd = time.time()
 with open("input.txt", "w") as fp:
     fp.write(" ".join(intList))
 
-time.sleep(2)
+time.sleep(10)
 
 iStart = time.time()
 intList = input()
