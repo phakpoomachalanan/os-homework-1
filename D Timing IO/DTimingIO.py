@@ -6,11 +6,15 @@ noIStart = time.time()
 intList = [str(i+1) for i in range(NO_OF_TIMES)]
 noIEnd = time.time()
 
+with open("input.txt", "w") as fp:
+    fp.write(" ".join(intList))
+
 time.sleep(2)
 
 iStart = time.time()
-intList = input().split()
+intList = input()
 iEnd = time.time()
+intList = intList.split()
 
 noOStart = time.time()
 [x for x in intList]
